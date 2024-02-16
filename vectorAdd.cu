@@ -13,7 +13,6 @@ __global__ void quamsim_kernel(const float *input_state, float *output_state, co
   int update_i1 = i;
   int update_i2 = i ^ target_state;
 
-  //if ( (i <= (n - 1)) &&  (((i/target_state)%2) != 1) ) {
   if ( (i <= (n - 1)) &&  (!(i & target_state))) {
     output_state[update_i1] = gate_matrix[0] * input_state[update_i1] + gate_matrix[1] * input_state[update_i2];
     output_state[update_i2] = gate_matrix[2] * input_state[update_i1] + gate_matrix[3] * input_state[update_i2];
@@ -49,7 +48,7 @@ int main(int argc, char *argv[]) {
   state.pop_back();
 
   int n = state.size();
-  int N = log2(n);
+  //int N = log2(n);
 
   size_t size_s = n * sizeof(float);
   size_t size_g = 4 * sizeof(float);
