@@ -1,6 +1,6 @@
 # Location of the CUDA Toolkit
 NVCC := $(CUDA_PATH)/bin/nvcc
-CCFLAGS := -O -std=C++11
+CCFLAGS := -O2 -std=c++11
 EXTRA_NVCCFLAGS := --cudart=shared
 build: vectorAdd
 
